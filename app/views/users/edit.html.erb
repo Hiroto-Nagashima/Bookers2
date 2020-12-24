@@ -1,0 +1,22 @@
+  <% if flash[:notice] %>
+    <p class="text-success"><%= flash[:notice] %></p>
+  <% end %>
+<div class="container">
+      <div class="row">
+        <div class="col-5  mx-auto">
+            <%= form_with model:@user, local:true do |f| %>
+            <h2>User info</h2>
+            <p>Name</p>
+            <%= f.text_field :name, autofocus: true ,placeholder:"#{@user.name}" ,class:"form-control" %>
+            <p class="my-1">Image</p>
+            <%= f.attachment_field :profile_image, placeholder: "プロフィール画像" %>
+            <p>Introduction</p>
+            <%= f.text_area :introduction ,class:"form-control" %>
+            <%= f.submit "Update User" %>
+            <% end %>
+            <p>CopyRight Infratop.inc</p>
+         </div>
+      </div>
+
+</div>
+

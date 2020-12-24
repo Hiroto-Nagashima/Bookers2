@@ -1,20 +1,41 @@
-<div class="profile-container">
-    <div>
-      <h2>User info</h2>
-      <%= attachment_image_tag @user, :profile_image, :fill, 60, 60, fallback: "no_image.jpg"%>
-      <p>name：<%= current_user.name %></p>
-      <p>introduction：<%= current_user.introduction %></p>
-    </div>
-    <div>
-      <%= link_to "", edit_user_registration_path %>
-    <h2>New book</h2>
-      <%= form_with model:@book, local:true do |f| %>
-      <h3>Title</h3>
-      <%= f.text_field :title, autofocus: true %>
-      <h3>Opinion</h3>
-      <%= f.text_field :body, autofocus: true %>
-      <%= f.submit "Create Book" %>
-      <% end %>
-    </div>
+<div class="container">
+  <h2>User info</h2>
+  <div class="row">
+      <%= attachment_image_tag user, :profile_image, :fill, 60, 60, fallback: "no_image.jpg"%>
+     <table class="table">
+       <tbody>
+         <tr>
+           <th>name</th>
+           <th><%= user.name %></th>
+         </tr>
+         <tr>
+           <th>introduction</th>
+           <th><%= user.introduction %></th>
+         </tr>
+       </tbody>
+     </table>
+  </div>
+  <div class="row my-4">
+      <%= link_to "#",edit_user_path(current_user) ,class: 'btn btn-outline-secondary btn-sm btn-block fas fa-user-cog'%>
+  </div>
+  <div class="row">
+      <h2>New book</h2>
+        <%= form_with model:book, local:true do |f| %>
+        <p>Title</p>
+        <%= f.text_field :title, autofocus: true %>
+        <p>Opinion</p>
+        <%= f.text_field :body, autofocus: true %>
+        <%= f.submit "Create Book" ,class:"btn btn-success mt-3"%>
+        <% end %>
+  </div>
+
 </div>
+
+
+
+
+
+
+
+
 

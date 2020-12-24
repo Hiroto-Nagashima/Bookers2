@@ -1,0 +1,17 @@
+
+  <h2>Editing Book</h2>
+  <%= form_with model:@book, local:true do |f| %>
+    <label for="inputName">Name</label>
+    <p>Title</p>
+    <%= f.text_field :title, autofocus: true %>
+    <p>Opinion</p>
+    <%= f.text_field :body, autofocus: true %>
+    <%= f.submit "Update Book" %>
+  <% end %>
+
+  <%= link_to 'Show', book_path(params[:id])%>
+  <p>|</p>
+  <%= link_to 'Back', books_path(current_user.id) %>
+
+
+  <p>CopyRight Infratop.inc</p>
