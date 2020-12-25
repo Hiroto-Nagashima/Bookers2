@@ -1,17 +1,28 @@
-
-  <h2>Editing Book</h2>
-  <%= form_with model:@book, local:true do |f| %>
-    <label for="inputName">Name</label>
-    <p>Title</p>
-    <%= f.text_field :title, autofocus: true %>
-    <p>Opinion</p>
-    <%= f.text_field :body, autofocus: true %>
-    <%= f.submit "Update Book" %>
+ <div class="container">
+  <% if @book.errors.any? %>
+  <% @book.errors.full_messages.each do |message| %>
+    <p class="text-danger">Error! <%= message %></p>
   <% end %>
+  <% end %>
+ </div>
+<div class="container mt-3">
+      <div class="row">
+        <div class="col-5  mx-auto">
+          <h1>Editing Book</h1>
+          <%= form_with model:@book, local:true do |f| %>
+            <p class="my-2">Title</p>
+            <%= f.text_field :title, class:"form-control", autofocus: true ,placeholder:"#{@book.title}"%>
+            <p class="my-2">Opinion</p>
+            <%= f.text_area :body, class:"form-control" , autofocus: true , placeholder:"#{@book.body}"%>
+            <%= f.submit "Update Book" ,class:"btn btn-success my-3"%>
+            <% end %>
+            <div class="row mx-auto">
+              <%= link_to 'Show', book_path(params[:id])%>
+              <p>|</p>
+              <%= link_to 'Back', books_path(current_user.id) %>
+            </div>
+            <p class="my-4 text-center">CopyRight Infratop.inc</p>
 
-  <%= link_to 'Show', book_path(params[:id])%>
-  <p>|</p>
-  <%= link_to 'Back', books_path(current_user.id) %>
-
-
-  <p>CopyRight Infratop.inc</p>
+        </div>
+      </div>
+</div>

@@ -6,7 +6,7 @@
        <tbody>
          <tr>
            <th>name</th>
-           <th><%= user.name %></th>
+           <th><%= "#{user.name}" %></th>
          </tr>
          <tr>
            <th>introduction</th>
@@ -18,18 +18,21 @@
   <div class="row my-4">
       <%= link_to "#",edit_user_path(current_user) ,class: 'btn btn-outline-secondary btn-sm btn-block fas fa-user-cog'%>
   </div>
-  <div class="row">
+  <div>
       <h2>New book</h2>
-        <%= form_with model:book, local:true do |f| %>
-        <p>Title</p>
-        <%= f.text_field :title, autofocus: true %>
+         <%= form_with model:book, local:true do |f| %>
+        <div class="form-group">
+          <p>Title</p>
+          <%= f.text_field :title, autofocus: true ,class: "form-control" , rows:"12"%>
+        </div>
         <p>Opinion</p>
-        <%= f.text_field :body, autofocus: true %>
+        <%= f.text_area :body, autofocus: true ,class:"d-block"%>
         <%= f.submit "Create Book" ,class:"btn btn-success mt-3"%>
         <% end %>
   </div>
 
 </div>
+
 
 
 

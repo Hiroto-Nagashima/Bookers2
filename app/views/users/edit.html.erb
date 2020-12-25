@@ -1,20 +1,25 @@
-  <% if flash[:notice] %>
-    <p class="text-success"><%= flash[:notice] %></p>
+ <div class="container">
+  <% if @user.errors.any? %>
+  <% @user.errors.full_messages.each do |message| %>
+    <p class="text-danger">Error! <%= message %></p>
   <% end %>
-<div class="container">
+  <% end %>
+ </div>
+
+<div class="container mt-3">
       <div class="row">
         <div class="col-5  mx-auto">
             <%= form_with model:@user, local:true do |f| %>
             <h2>User info</h2>
             <p>Name</p>
             <%= f.text_field :name, autofocus: true ,placeholder:"#{@user.name}" ,class:"form-control" %>
-            <p class="my-1">Image</p>
+            <p class="my-2">Image</p>
             <%= f.attachment_field :profile_image, placeholder: "プロフィール画像" %>
-            <p>Introduction</p>
+            <p class="my-2">Introduction</p>
             <%= f.text_area :introduction ,class:"form-control" %>
-            <%= f.submit "Update User" %>
+            <%= f.submit "Update User" ,class:"btn btn-secondary my-3"%>
             <% end %>
-            <p>CopyRight Infratop.inc</p>
+            <p class="my-4 text-center">CopyRight Infratop.inc</p>
          </div>
       </div>
 

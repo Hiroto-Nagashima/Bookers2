@@ -1,5 +1,10 @@
 
 <div class="container mt-4">
+ <% if @book.errors.any? %>
+  <% @book.errors.full_messages.each do |message| %>
+    <p class="text-danger">Error! <%= message %></p>
+  <% end %>
+  <% end %>
   <div class="row">
     <div class="col-md-3 " >
     <%= render 'users/user_template', book: @book ,user: @user%>
@@ -26,3 +31,4 @@
     </div>
   </div>
 </div>
+<footer class="container my-4 text-center">CopyRight Infratop.inc</footer>
