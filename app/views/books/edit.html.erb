@@ -1,7 +1,7 @@
  <div class="container">
   <% if @book.errors.any? %>
   <% @book.errors.full_messages.each do |message| %>
-    <p class="text-danger">Error! <%= message %></p>
+    <p class="text-danger">error! <%= message %></p>
   <% end %>
   <% end %>
  </div>
@@ -19,7 +19,7 @@
             <div class="row mx-auto">
               <%= link_to 'Show', book_path(params[:id])%>
               <p>|</p>
-              <%= link_to 'Back', books_path(current_user.id) %>
+              <%= link_to 'Back', books_path %>
             </div>
             <p class="my-4 text-center">CopyRight Infratop.inc</p>
 
